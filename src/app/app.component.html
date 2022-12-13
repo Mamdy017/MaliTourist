@@ -14,36 +14,67 @@
   </div>
 
 </mat-toolbar>
-
 <mat-sidenav-container>
   <mat-sidenav #sidenav="matSidenav" class="mat-elevation-z8">
     <img class="avatar mat-elevation-z8" src="https://source.unsplash.com/c_GmwfHBDzk/200x200" />
-    <button mat-button class="menu-button">
+    <mat-divider class="py-1 tirete"></mat-divider>
+    <button mat-button class="menu-button" routerLinkActive="active" routerLink="/accueil">
       <mat-icon>home</mat-icon>
-      <span><a routerLink="/accueil">Accueil</a></span>
+      <span>Accueil</span>
     </button>
-    <button mat-button class="menu-button">
+    <div class="py-1"></div>
+    <button mat-button class="menu-button" routerLinkActive="active" routerLink="/region">
       <mat-icon>person</mat-icon>
       <span>Profile</span>
     </button>
-    <button mat-button class="menu-button">
-      <mat-icon>info</mat-icon>
-      <span>About</span>
+    <div class="py-1"></div>
+    <button mat-button class="menu-button" routerLinkActive="active" routerLink="/utilisateur">
+      <mat-icon>location_on</mat-icon>
+      <span>Régions</span>
     </button>
-
     <mat-divider></mat-divider>
-
-    <button mat-button class="menu-button">
-      <mat-icon>help</mat-icon>
+    <button mat-button class="menu-button dec" routerLinkActive="active" routerLink="/utili">
+      <mat-icon>power_settings_new</mat-icon>
       <span>Help</span>
     </button>
   </mat-sidenav>
   <mat-sidenav-content>
     <div class="content">
-        <div class="container">
-            <router-outlet></router-outlet>
-        </div>
-
+      <div class="container con">
+        <router-outlet></router-outlet>
+        <!-- Footer -->
+        <footer class="text-center text-lg-start bg-white text-muted">
+          <!-- Section: Social media -->
+          <section class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom">
+            <!-- Left -->
+            <div class="me-5 d-none d-lg-block">
+              <span> © 2022 MaliTourist. Tous Droits réservés | par Mamdy017</span>
+            </div>
+            <div>
+              <a href="" class="me-4 link-secondary">
+                <i class="fab fa-facebook-f"></i>
+              </a>
+              <a href="" class="me-4 link-secondary">
+                <i class="fab fa-twitter"></i>
+              </a>
+              <a href="" class="me-4 link-secondary">
+                <i class="fab fa-google"></i>
+              </a>
+              <a href="" class="me-4 link-secondary">
+                <i class="fab fa-instagram"></i>
+              </a>
+              <a href="" class="me-4 link-secondary">
+                <i class="fab fa-linkedin"></i>
+              </a>
+              <a href="" class="me-4 link-secondary">
+                <i class="fab fa-github"></i>
+              </a>
+            </div>
+            <!-- Right -->
+          </section>
+        </footer>
+        <!-- Footer -->
+      </div>
     </div>
   </mat-sidenav-content>
 </mat-sidenav-container>

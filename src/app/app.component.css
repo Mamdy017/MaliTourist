@@ -12,10 +12,19 @@ mat-sidenav {
   border-radius: 10px;
   padding: 16px;
   text-align: center;
+  height: 88vh !important;
+  
 }
-
+button.active{
+  background-color: #464A59;
+  color: #fff;
+}
+button:hover{
+  background-color: #464A59;
+  color: #fff;
+}
 .content {
-  height: calc(100vh - 98px);
+ /* height: calc(100vh - 98px); */
   border-radius: 10px;
   margin: 16px;
   margin-left: 32px;
@@ -81,3 +90,8 @@ mat-divider {
   background-color: rgba(255, 255, 255, 0.5);
 }
 
+.dec {
+  position:absolute;
+  bottom:8px;
+  width: 85%;  /* on le colle en bas */  /* Hauteur du pied de page */
+}
