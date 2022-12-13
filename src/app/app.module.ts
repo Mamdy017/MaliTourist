@@ -9,8 +9,12 @@ import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatButtonModule} from '@angular/material/button';
 import {MatIconModule} from '@angular/material/icon';
 import {MatDividerModule} from '@angular/material/divider';
+import {MatCardModule} from '@angular/material/card';
+import { AccueilComponent } from './accueil/accueil.component';
+import { RegionComponent } from './region/region.component';
+
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, AccueilComponent, RegionComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -20,6 +24,7 @@ import {MatDividerModule} from '@angular/material/divider';
     MatButtonModule,
     MatIconModule,
     MatDividerModule,
+    MatCardModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

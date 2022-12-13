@@ -1,0 +1,32 @@
+
+  p {
+    font-weight: 200;
+    font-size: 20px;
+  }
+  .col {
+    height: 20%;
+  }
+  a{
+    text-decoration: none;
+  }
+  .col-lg-3 {
+    flex: 0 0 auto;
+    width: 25%;
+  }
+  .flex {
+    display: block;
+  }
+  @media only screen and (max-width: 600px) {
+
+  }
+  .img{
+    background-size: cover;
+    background-image: url(../../assets/17384392-21889470.jpg);
+    height:100% !important;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed
+  }
+  .co{
+    height: 300px !important;
+  }
