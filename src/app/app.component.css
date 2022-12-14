@@ -13,18 +13,21 @@ mat-sidenav {
   padding: 16px;
   text-align: center;
   height: 88vh !important;
-  
+
 }
-button.active{
+
+button.active {
   background-color: #464A59;
   color: #fff;
 }
-button:hover{
+
+button:hover {
   background-color: #464A59;
   color: #fff;
 }
+
 .content {
- /* height: calc(100vh - 98px); */
+  /* height: calc(100vh - 98px); */
   border-radius: 10px;
   margin: 16px;
   margin-left: 32px;
@@ -46,6 +49,7 @@ mat-sidenav-container {
   justify-content: flex-start;
   font-size: 1rem;
 }
+
 mat-icon {
   margin-right: 8px;
 }
@@ -56,6 +60,7 @@ mat-icon {
   height: 100px;
   border-radius: 50%;
 }
+
 .avatar1 {
   margin-top: 1px;
   width: 50px;
@@ -67,6 +72,7 @@ mat-icon {
 .flex {
   display: block;
 }
+
 @media only screen and (max-width: 600px) {
   .flex {
     display: none;
@@ -78,6 +84,7 @@ mat-icon {
   margin-top: 8px;
   font-weight: normal;
 }
+
 .designation {
   margin-top: 2px;
   font-size: 0.7rem;
@@ -91,7 +98,39 @@ mat-divider {
 }
 
 .dec {
-  position:absolute;
-  bottom:8px;
-  width: 85%;  /* on le colle en bas */  /* Hauteur du pied de page */
+  position: absolute;
+  bottom: 8px;
+  width: 85%;
+  /* on le colle en bas */
+  /* Hauteur du pied de page */
+}
+
+span {
+  font-size: 16px;
+  color: #464A59;
+}
+
+p {
+  font-size: 16px;
+  color: #464A59;
+}
+
+.hr {
+  width: 90%;
+  color:#464A59 ;
+  size: 2px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.footer {
+  height: 140px;
+}
+
+.mail {
+  font-size: 14px;
+}
+.footer{
+  background-color: #fff;
+  box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);  /* Hauteur du pied de page */
 }
