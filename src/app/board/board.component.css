@@ -1,0 +1,8 @@
+#torrent-scanner-popup
+{
+  z-index: 0 !important;
+}
+.mat-drawer-side{z-index:0;}
+.modal-backdrop .fade .show{
+  z-index: 0 !important;
+}

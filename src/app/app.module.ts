@@ -13,11 +13,14 @@ import { AccueilComponent } from './accueil/accueil.component';
 import { RegionComponent } from './region/region.component';
 import { DetailsComponent } from './details/details.component';
 import { BoardComponent } from './board/board.component';
+import { ConnexionComponent } from './connexion/connexion.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
-  declarations: [AppComponent, AccueilComponent, RegionComponent, DetailsComponent, BoardComponent],
+  declarations: [AppComponent, AccueilComponent, RegionComponent, DetailsComponent, BoardComponent, ConnexionComponent],
   imports: [
     BrowserModule,
+    ReactiveFormsModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     MatToolbarModule,
