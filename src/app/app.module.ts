@@ -12,9 +12,10 @@ import {MatCardModule} from '@angular/material/card';
 import { AccueilComponent } from './accueil/accueil.component';
 import { RegionComponent } from './region/region.component';
 import { DetailsComponent } from './details/details.component';
+import { BoardComponent } from './board/board.component';
 
 @NgModule({
-  declarations: [AppComponent, AccueilComponent, RegionComponent, DetailsComponent],
+  declarations: [AppComponent, AccueilComponent, RegionComponent, DetailsComponent, BoardComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
