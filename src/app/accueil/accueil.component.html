@@ -1,7 +1,7 @@
 <div class="container py-5">
   <div class="row w-100 row-cols-1 row-cols-md-3 row-cols-xl-3 ro py-5">
     <div class="col py-1">
-      <div class="card radius-10 border-start border-0 border-3 border-success">
+      <div class="card radius-10 border-start border-end border-0 border-3 border-success">
         <div class="card-body">
           <div class="d-flex align-items-center">
             <div>
@@ -10,14 +10,16 @@
               <!-- <p class="mb-0 font-13">-4.5% from last week</p> -->
             </div>
             <div class="widgets-icons-2 rounded-circle bg-gradient-ohhappiness text-white ms-auto">
-              <i class='bx bxs-car'></i>
+              <button mat-fab extended disabled class="bg-danger" style="color: white;">
+                <mat-icon>location_on</mat-icon>
+              </button>
             </div>
           </div>
         </div>
       </div>
     </div>
     <div class="col py-1">
-      <div class="card radius-10 border-start border-0 border-3 border-warning">
+      <div class="card radius-10 border-start border-end border-0 border-3 border-warning">
         <div class="card-body">
           <div class="d-flex align-items-center">
             <div>
@@ -26,14 +28,16 @@
               <!-- <p class="mb-0 font-13">+8.4% from last week</p> -->
             </div>
             <div class="widgets-icons-2 rounded-circle bg-gradient-blooker text-white ms-auto">
-              <i class="fa-solid fa-users"></i>
+              <button mat-fab extended disabled class="bg-warning" style="color: white;">
+                <mat-icon>person</mat-icon>
+              </button>
             </div>
           </div>
         </div>
       </div>
     </div>
     <div class="col py-1">
-      <div class="card radius-10 border-start border-0 border-3 border-danger">
+      <div class="card radius-10 border-start border-end border-0 border-3 border-danger">
         <div class="card-body">
           <div class="d-flex align-items-center">
             <div>
@@ -42,8 +46,9 @@
               <!-- <p class="mb-0 font-13">+5.4% from last week</p> -->
             </div>
             <div class="widgets-icons-2 rounded-circle bg-gradient-bloody text-white ms-auto">
-              <i class='bx bxs-wallet'></i>
-              <mat-icon>help</mat-icon>
+              <button mat-fab extended disabled class="bg-primary" style="color: white;">
+                <mat-icon>blur_circular</mat-icon>
+              </button>
             </div>
           </div>
         </div>

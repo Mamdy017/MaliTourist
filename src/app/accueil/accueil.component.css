@@ -6,9 +6,7 @@
   .col {
     height: 20%;
   }
-  a{
-    text-decoration: none;
-  }
+ 
   h1{
     color: #464A59;
   }
@@ -18,9 +16,9 @@
   }
   @media only screen and (max-width: 600px) {
 
-    
+
   }
- 
+
   .img{
     background-size: cover;
     background-image: url(../../assets/17384392-21889470.jpg);
