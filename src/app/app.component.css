@@ -101,6 +101,19 @@ mat-divider {
   position: absolute;
   bottom: 8px;
   width: 85%;
+  background-color: #E74447;
+  color:white;
+  /* on le colle en bas */
+  /* Hauteur du pied de page */
+}
+.dec2{
+  color:white ;
+}
+
+.dec1 {
+  position: absolute;
+  bottom: 40px;
+  width: 85%;
   /* on le colle en bas */
   /* Hauteur du pied de page */
 }

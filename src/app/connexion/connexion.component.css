@@ -87,6 +87,7 @@ body {
 }
 mat-divider {
   background-color: #FFF;
+  height: 10px !important;
 }
 /* svg {
   position: absolute;
