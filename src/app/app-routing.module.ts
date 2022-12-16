@@ -4,6 +4,7 @@ import { AccueilComponent } from './accueil/accueil.component';
 import { BoardComponent } from './board/board.component';
 import { ConnexionComponent } from './connexion/connexion.component';
 import { DetailsComponent } from './details/details.component';
+import { InscriptionComponent } from './inscription/inscription.component';
 import { RegionComponent } from './region/region.component';
 
 const routes: Routes = [
@@ -12,6 +13,7 @@ const routes: Routes = [
   { path: 'board', component: BoardComponent },
   { path: 'details', component: DetailsComponent },
   { path: 'connexion', component: ConnexionComponent },
+  { path: 'inscription', component: InscriptionComponent },
 
 ];
 

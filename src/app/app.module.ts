@@ -15,9 +15,10 @@ import { DetailsComponent } from './details/details.component';
 import { BoardComponent } from './board/board.component';
 import { ConnexionComponent } from './connexion/connexion.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { InscriptionComponent } from './inscription/inscription.component';
 
 @NgModule({
-  declarations: [AppComponent, AccueilComponent, RegionComponent, DetailsComponent, BoardComponent, ConnexionComponent],
+  declarations: [AppComponent, AccueilComponent, RegionComponent, DetailsComponent, BoardComponent, ConnexionComponent, InscriptionComponent],
   imports: [
     BrowserModule,
     ReactiveFormsModule,
