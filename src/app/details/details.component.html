@@ -62,7 +62,33 @@
                 <div class="card-body">
                     <h5 class="card-title">Special title treatment</h5>
                     <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                    <button type="button" class="btn btn-primary" data-mdb-toggle="modal" data-mdb-target="#staticBackdrop4">
+                        Ajouter un pays <mat-icon>border_color</mat-icon>
+                      </button>
+                    
+                      <!-- Modal -->
+                      <div class="modal fade" id="staticBackdrop4" tabindex="100" aria-labelledby="exampleModalLabel4" aria-hidden="true">
+                        <div class="modal-dialog d-flex justify-content-center">
+                          <div class="modal-content w-75 mod">
+                            <div class="modal-header">
+                              <h5 class="modal-title" id="exampleModalLabel4">Write to us</h5>
+                              <button type="button" class="btn-close" data-mdb-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body p-4">
+                              <form>
+                                <!-- textarea input -->
+                                <div class="form-outline mb-4">
+                                  <textarea id="textarea4" rows="4" class="form-control"></textarea>
+                                  <label class="form-label" for="textarea4">Faire un commenteur</label>
+                                </div>                  
+                                <!-- Submit button -->
+                                <button type="submit" class="btn btn-primary btn-block">Send</button>
+                              </form>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <!-- Modal -->
                 </div>
             </div>
         </div>

@@ -1,18 +1,6 @@
-#torrent-scanner-popup
-{
-  z-index: 0 !important;
-}
-.mat-drawer-side{z-index:0;}
-.modal-backdrop .fade .show{
-  z-index: 0 !important;
-}
-
-
-p {
-  font-weight: 200;
-  font-size: 20px;
-}
-h1{
-  color: #464A59;
-}
-
+/* 
+.mod{
+  background-color: red!important;
+  z-index: 1!important;
+  position: relative!important;
+} */
