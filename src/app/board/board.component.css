@@ -1,6 +1,11 @@
-/* 
+/*
 .mod{
   background-color: red!important;
   z-index: 1!important;
   position: relative!important;
 } */
+
+label
+{
+  margin-left: 2%;
+}

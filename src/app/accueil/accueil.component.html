@@ -136,47 +136,63 @@
   </div>
   <div class="example-button-row d-flex justify-content-end">
     <button type="button" class="btn btn-primary" data-mdb-toggle="modal" data-mdb-target="#staticBackdrop4">
-      Ajouter un pays <mat-icon>border_color</mat-icon>
+      Ajouter une région <mat-icon>border_color</mat-icon>
     </button>
 
     <!-- Modal -->
     <div class="modal fade" id="staticBackdrop4" tabindex="100" aria-labelledby="exampleModalLabel4" aria-hidden="true">
       <div class="modal-dialog d-flex justify-content-center">
-        <div class="modal-content w-75 mod">
+        <div class="modal-content w-100 mod">
           <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel4">Write to us</h5>
+            <h5 class="modal-title" id="exampleModalLabel4">Ajouter une région</h5>
             <button type="button" class="btn-close" data-mdb-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body p-4">
-            <form>
+            <form class="row ">
               <!-- Name input -->
-              <div class="form-outline mb-4">
-                <input type="text" id="name4" class="form-control" />
-                <label class="form-label" for="name4">Name</label>
+              <div class="form-outline col-md-6">
+                <input type="text" name="nom" formControlName="nom" id="name" placeholder="Nom"
+                  class="form form-control inputvalue">
+                <label for="name">Nom</label>
               </div>
 
               <!-- Email input -->
-              <div class="form-outline mb-4">
-                <input type="email" id="email4" class="form-control" />
-                <label class="form-label" for="email4">Email address</label>
+              <div class="form-outline col-md-6 ">
+                <input type="text" id="" name="code_region"  class="form-control" formControlName="code_region" placeholder="Code region" />
+                <label class="form-label" for="code_region"> Code region</label>
+              </div>
+              <div class="form-outline  col-md-6 ">
+                <input type="text" id="" name="activite" formControlName="activite" class="form-control" placeholder="Activité" />
+                <label class="form-label" for="activite">Activité</label>
+              </div>
+              <div class="form-outline  col-md-6 ">
+                <input type="text" id="" name="superficie" class="form-control" formControlName="superficie" placeholder="Superficie" />
+                <label class="form-label" for="superficie">Superficie</label>
+              </div>
+              <div class="form-outline">
+                <input type="file" id="" class="form-control" formControlName="file1" name="file1" (change)="fileChang($event)" />
+                <label class="form-label" for="image1">Image1 du région</label>
+              </div>
+              <div class="form-outline">
+                <input type="file" id="" class="form-control" formControlName="file2" name="file2" (change)="fileChang($event)" />
+                <label class="form-label" for="image2">Image2 du région</label>
+              </div>
+              <div class="form-outline">
+                <input type="file" id="" class="form-control" formControlName="file3" name="file3" (change)="fileChang($event)" />
+                <label class="form-label" for="image3">Image3 du région</label>
               </div>
 
               <!-- textarea input -->
-              <div class="form-outline mb-4">
-                <textarea id="textarea4" rows="4" class="form-control"></textarea>
-                <label class="form-label" for="textarea4">Your message</label>
+              <div class="form-outline mb-3 col-12  form-row form-floating">
+                <textarea id="textarea4" rows="2" name="description" class="form-control" formControlName="Description"></textarea>
+                <label class="form-label" for="textarea4">Description</label>
               </div>
+
 
               <!-- Checkbox -->
-              <div class="form-check d-flex justify-content-center mb-4">
-                <input class="form-check-input me-2" type="checkbox" value="" id="checkbox4" checked />
-                <label class="form-check-label" for="checkbox4">
-                  Send me a copy of this message
-                </label>
-              </div>
 
               <!-- Submit button -->
-              <button type="submit" class="btn btn-primary ">Send</button>
+              <button type="submit" class="btn btn-primary ">Ajouter la région</button>
             </form>
           </div>
         </div>

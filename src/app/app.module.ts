@@ -8,6 +8,7 @@ import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatButtonModule} from '@angular/material/button';
 import {MatIconModule} from '@angular/material/icon';
 import {MatDividerModule} from '@angular/material/divider';
+import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatCardModule} from '@angular/material/card';
 import { AccueilComponent } from './accueil/accueil.component';
 import { RegionComponent } from './region/region.component';
@@ -16,6 +17,7 @@ import { BoardComponent } from './board/board.component';
 import { ConnexionComponent } from './connexion/connexion.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { InscriptionComponent } from './inscription/inscription.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [AppComponent, AccueilComponent, RegionComponent, DetailsComponent, BoardComponent, ConnexionComponent, InscriptionComponent],
@@ -28,8 +30,10 @@ import { InscriptionComponent } from './inscription/inscription.component';
     MatSidenavModule,
     MatButtonModule,
     MatIconModule,
+    HttpClientModule,
     MatDividerModule,
     MatCardModule,
+    MatPaginatorModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

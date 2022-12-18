@@ -6,7 +6,7 @@
   .col {
     height: 20%;
   }
- 
+
   h1{
     color: #464A59;
   }
@@ -75,4 +75,8 @@
     width: 100% !important;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 
+  }
+  label
+  {
+    margin-left: 2%;
   }

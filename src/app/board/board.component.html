@@ -1,6 +1,3 @@
-<div class="container">
-
-</div>
 <div class="row">
   <h1>Tous les pays</h1>
   <div class="col-md-6 ">
@@ -83,28 +80,28 @@
 
 </div>
 <div class="row py-5">
-  <div class="col-md-3">
+  <div class="col-md-3" *ngFor="let Pays of pays ">
     <mat-card class="example-card">
       <mat-card-header>
         <mat-card-title-group>
-          <mat-card-title class="titre1">Mali</mat-card-title>
-          <mat-card-subtitle class="titre1">Bamako</mat-card-subtitle>
-          <img mat-card-sm-image src="../../assets/Flag_of_Mali.jpg" style="margin-left: 30%;">
+          <mat-card-title class="titre1">{{Pays.nom}}</mat-card-title>
+          <mat-card-subtitle class="titre1">{{Pays.capital}}</mat-card-subtitle>
+          <img mat-card-sm-image src="../../assets/{{Pays.drapeau}}" style="margin-left: 30%;">
         </mat-card-title-group>
       </mat-card-header>
       <mat-card-content>
         <br><br>
         <div class="row">
-          <span> Superficie 1241238 km²</span>
+          <span> Superficie {{Pays.sperficie}}</span>
           <div class="col-md-8">
-          <br>
-              <span> Population 20 M</span><br>
-              <span> 20 Régions</span>
-           
+            <br>
+            <span> Population 20 M</span><br>
+            <span> 20 Régions</span>
+
           </div>
           <div class="col-md-3">
             <div class=" py-2"></div>
-            <button mat-button class="menu-button bg-danger" routerLinkActive="active" routerLink="/accueil">
+            <button mat-button class="menu-button bg-danger" routerLinkActive="active" [routerLink]="['/accueil',Pays.id]">
               <!-- <mat-icon>person</mat-icon> -->
               <span>Profile</span>
             </button>
@@ -114,64 +111,9 @@
 
       </mat-card-content>
     </mat-card>
+    <!-- <h2 *ngIf="!Pays"> Aucun pays dans la base de donnée !</h2> -->
   </div>
-  <div class="col-md-3 py-2">
-    <mat-card class="example-card">
-      <mat-card-header>
-        <mat-card-title-group>
-          <mat-card-title class="titre1">Guinée</mat-card-title>
-          <mat-card-subtitle class="titre1">Coanakry</mat-card-subtitle>
-          <img mat-card-sm-image src="../../assets/Flag_of_Guinea.jpg" style="margin-left: 30%;">
-        </mat-card-title-group>
-      </mat-card-header>
-      <mat-card-content> <br>
-
-          <span> Superficie 420201 km²</span><br>
-          <span> Population 21 M</span><br>
-          <span> 10 Régions</span>
-
-
-      </mat-card-content>
-    </mat-card>
-  </div>
-  <div class="col-md-3 py-2">
-    <mat-card class="example-card">
-      <mat-card-header>
-        <mat-card-title-group>
-          <mat-card-title class="titre1">Algérie</mat-card-title>
-          <mat-card-subtitle class="titre1">Abidjan</mat-card-subtitle>
-          <img mat-card-sm-image src="../../assets/Flag_of_Algeria.jpg" style="margin-left:30%;">
-        </mat-card-title-group>
-      </mat-card-header>
-      <mat-card-content> <br>
-
-          <span> Superficie 420201 km²</span><br>
-          <span> Population 21 M</span><br>
-          <span> 10 Régions</span>
-
-
-      </mat-card-content>
-    </mat-card>
-  </div>
-  <div class="col-md-3 py-2">
-    <mat-card class="example-card">
-      <mat-card-header>
-        <mat-card-title-group>
-          <mat-card-title class="titre1">Sénégal</mat-card-title>
-          <mat-card-subtitle class="titre1">Dakar</mat-card-subtitle>
-          <img mat-card-sm-image src="../../assets/snegal.jpg" style="margin-left: 30%;">
-        </mat-card-title-group>
-      </mat-card-header>
-      <mat-card-content><br>
-
-          <span class=""> Superficie</span><br>
-          <span> Population 21 M</span><br>
-          <span> 10 Régions</span>
-
-
-      </mat-card-content>
-    </mat-card>
-  </div>
+  <!-- <pagination-controls (pageChange)="p = $event" class="text-center"></pagination-controls> -->
 </div>
 <div class="example-button-row d-flex justify-content-end">
   <button type="button" class="btn btn-primary" data-mdb-toggle="modal" data-mdb-target="#staticBackdrop4">
@@ -181,41 +123,36 @@
   <!-- Modal -->
   <div class="modal fade" id="staticBackdrop4" tabindex="100" aria-labelledby="exampleModalLabel4" aria-hidden="true">
     <div class="modal-dialog d-flex justify-content-center">
-      <div class="modal-content w-75 mod">
+      <div class="modal-content w-100">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel4">Write to us</h5>
+          <h5 class="modal-title" id="exampleModalLabel4">Formulaire d'ajout d'un pays</h5>
           <button type="button" class="btn-close" data-mdb-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body p-4">
-          <form>
-            <!-- Name input -->
-            <div class="form-outline mb-4">
-              <input type="text" id="name4" class="form-control" />
-              <label class="form-label" for="name4">Name</label>
+          <form class="row " [formGroup]="formmodule" (ngSubmit)="AjoutPays()" action="">
+            <div class="form-outline mb-4 col-12 form-row form-floating">
+              <input type="text" name="nom" formControlName="nom" id="name" placeholder="Nom"
+                class="form form-control inputvalue">
+              <label for="name">Nom</label>
             </div>
-
-            <!-- Email input -->
-            <div class="form-outline mb-4">
-              <input type="email" id="email4" class="form-control" />
-              <label class="form-label" for="email4">Email address</label>
+            <div class="form-outline mb-4 col-12 form-row form-floating">
+              <input type="text" name="capital" formControlName="capital" id="capital" placeholder="capital"
+                class="form form-control inputvalue">
+              <label for="name">Capital</label>
             </div>
-
-            <!-- textarea input -->
-            <div class="form-outline mb-4">
-              <textarea id="textarea4" rows="4" class="form-control"></textarea>
-              <label class="form-label" for="textarea4">Your message</label>
+            <div class="form-outline mb-4 col-12 form-row form-floating">
+              <input type="text" name="superficie" formControlName="superficie" id="superficie" placeholder="superficie"
+                class="form form-control inputvalue">
+              <label for="name">Superficie</label>
             </div>
-
-            <!-- Checkbox -->
-            <div class="form-check d-flex justify-content-center mb-4">
-              <input class="form-check-input me-2" type="checkbox" value="" id="checkbox4" checked />
-              <label class="form-check-label" for="checkbox4">
-                Send me a copy of this message
-              </label>
+            <div class="form-outline mb-4">
+              <input type="file" id="drpeau4" formControlName="file" name="file" (change)="fileChang($event)"
+                class="form-control" />
+              <label class="form-label" for="email4">Drapeau</label>
             </div>
 
             <!-- Submit button -->
-            <button type="submit" class="btn btn-primary btn-block">Send</button>
+            <button type="submit" class="btn btn-primary btn-block">Ajouter</button>
           </form>
         </div>
       </div>

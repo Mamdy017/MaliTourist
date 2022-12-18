@@ -8,7 +8,7 @@ import { InscriptionComponent } from './inscription/inscription.component';
 import { RegionComponent } from './region/region.component';
 
 const routes: Routes = [
-  { path: 'accueil', component: AccueilComponent },
+  { path: 'accueil/:idPays', component: AccueilComponent },
   { path: 'region', component: RegionComponent },
   { path: 'board', component: BoardComponent },
   { path: 'details', component: DetailsComponent },
