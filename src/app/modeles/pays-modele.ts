@@ -1,5 +1,5 @@
 export class PaysModele {
-  id!: number;
+  idPays!: number;
   nom!: string;
   capital!: string;
   superficie!: string;

@@ -10,12 +10,12 @@ import { PaysModele } from '../modeles/pays-modele';
 export class PaysServiceService {
 
   file:any;
-  file2:any;
+  file1:any;
   constructor( private http: HttpClient) { }
-  ajouterPAys(nom: string, capital:string, superficie:string, file:any):Observable<any>{
+  ajouterPAys(nom: string, capital:string, superficie:string, file:any, file1:any):Observable<any>{
     let Data =new FormData();
     Data.append('file',file);
-    // Data.append('file2',file2);
+    Data.append('file1',file1);
     Data.append('nom',nom);
     Data.append('capital',capital);
     Data.append('superficie',superficie);

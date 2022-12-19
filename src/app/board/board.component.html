@@ -146,7 +146,12 @@
               <label for="name">Superficie</label>
             </div>
             <div class="form-outline mb-4">
-              <input type="file" id="drpeau4" formControlName="file" name="file" (change)="fileChang($event)"
+              <input type="file" id="drpeau4" formControlName="file" name="file" multiple (change)="fileChang($event)"
+                class="form-control" />
+              <label class="form-label" for="email4">Drapeau</label>
+            </div>
+            <div class="form-outline mb-4">
+              <input type="file" id="drpeau5" formControlName="file1" name="file1" multiple (change)="fileChang1($event)"
                 class="form-control" />
               <label class="form-label" for="email4">Drapeau</label>
             </div>

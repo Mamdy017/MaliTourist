@@ -16,7 +16,7 @@ export class BoardComponent implements OnInit {
   p = 1;
 
   Paysobjet: PaysModele = {
-    id: 0,
+    idPays: 0,
     nom: '',
     capital: '',
     superficie: '',
@@ -33,7 +33,7 @@ export class BoardComponent implements OnInit {
   capital !: string;
   superficie !: string;
   file: any;
-  // file2: any;
+  file1: any;
 
   constructor(private service: PaysServiceService, private formB: FormBuilder,) { }
 
@@ -43,7 +43,7 @@ export class BoardComponent implements OnInit {
       file: ["", Validators.required],
       capital: ["", Validators.required],
       superficie: ["", Validators.required],
-      // file2: ["", Validators.required],
+      file1: ["", Validators.required],
       // iduser:["",Validators.required]
     })
     this.service.afficherPays().subscribe(data => {
@@ -54,16 +54,16 @@ export class BoardComponent implements OnInit {
 
 
   fileChang(event: any) {
-    this.file = event.target.files[2]
+    this.file = event.target.files[0]
     console.log(event)
 
   }
 
-  // fileChang1(event1: any) {
-  //   this.file2 = event1.target.files[0]
-  //   console.log(event1)
+  fileChang1(event: any) {
+    this.file1 = event.target.files[0]
+    console.log(event)
 
-  // }
+  }
 
 
 
@@ -78,7 +78,7 @@ export class BoardComponent implements OnInit {
       heightAuto: false
     })
 
-    if (this.nom == "" || this.capital == '' || this.superficie == '' || this.file == null) {
+    if (this.nom == "" || this.capital == '' || this.superficie == '' || this.file == null || this.file1 == null) {
       swalWithBootstrapButtons.fire(
         this.message = " Veuillez bien remplir tous les champs !",
       )
@@ -95,7 +95,7 @@ export class BoardComponent implements OnInit {
 
       }).then((result) => {
         if (result.isConfirmed) {
-          this.service.ajouterPAys(this.Paysobjet.nom, this.Paysobjet.capital, this.Paysobjet.superficie, this.file).subscribe(data => {
+          this.service.ajouterPAys(this.Paysobjet.nom, this.Paysobjet.capital, this.Paysobjet.superficie, this.file, this.file1).subscribe(data => {
             if (data.status == true) {
               // this.route.navigateByUrl("/gestionentite")
               swalWithBootstrapButtons.fire(

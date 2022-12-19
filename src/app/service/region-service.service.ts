@@ -11,7 +11,7 @@ export class RegionServiceService {
   file3:any;
   file2:any;
   constructor( private http: HttpClient) { }
-  ajouterPAys(nom: string, code_region:string, activite:string,superficie:string,description:string, file1:any, file2:any, file3:any):Observable<any>{
+  ajouterRegion(nom: string, code_region:string, activite:string,superficie:string,description:string, idPays:number, file1:any, file2:any, file3:any):Observable<any>{
     let Data =new FormData();
     Data.append('nom',nom);
     Data.append('code_region',code_region);
@@ -21,6 +21,7 @@ export class RegionServiceService {
     Data.append('file1',file1);
     Data.append('file2',file2);
     Data.append('file3',file3);
+    // Data.append('idPays',idPays)
     return this.http.post<any>('http://localhost:8080/region/ajout',Data);
   }
 
