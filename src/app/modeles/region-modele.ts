@@ -8,10 +8,13 @@ export class RegionModele {
     activite!: string;
     code_region!: string;
     superficie!: string;
-    // idPays!: PaysModele;
-    img1! : String;
-    img2! : String ;
-    img3!:String;
+    pays!: PaysModele;
+    img1! : string;
+    img2! : string ;
+    img3!:string;
+   constructor(init: Partial<RegionModele>){
+    Object.assign(this, init)
+   } 
 }
 // export class Fichier {
 //   photoentite!: string;

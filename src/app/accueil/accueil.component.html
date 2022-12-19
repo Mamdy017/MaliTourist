@@ -151,22 +151,22 @@
             <form class="row " [formGroup]="formmodule" (ngSubmit)="AjoutRegion()">
               <!-- Name input -->
               <div class="form-outline col-md-6">
-                <input type="text" name="nom" formControlName="nom" id="name" placeholder="Nom"
+                <input type="text" name="nom" [(ngModel)]="nom" formControlName="nom" id="name" placeholder="Nom"
                   class="form form-control inputvalue">
                 <label for="name">Nom</label>
               </div>
 
               <!-- Email input -->
               <div class="form-outline col-md-6 ">
-                <input type="text" id="" name="code_region"  class="form-control" formControlName="code_region" placeholder="Code region" />
+                <input type="text" id="" name="code_region" [(ngModel)]="code_region"  class="form-control" formControlName="code_region" placeholder="Code region" />
                 <label class="form-label" for="code_region"> Code region</label>
               </div>
               <div class="form-outline  col-md-6 ">
-                <input type="text" id="" name="activite" formControlName="activite" class="form-control" placeholder="Activité" />
+                <input type="text" id="" name="activite" [(ngModel)]="activite" formControlName="activite" class="form-control" placeholder="Activité" />
                 <label class="form-label" for="activite">Activité</label>
               </div>
               <div class="form-outline  col-md-6 ">
-                <input type="text" id="" name="superficie" class="form-control" formControlName="superficie" placeholder="Superficie" />
+                <input type="text" id="" name="superficie" [(ngModel)]="superficie" class="form-control" formControlName="superficie" placeholder="Superficie" />
                 <label class="form-label" for="superficie">Superficie</label>
               </div>
               <div class="form-outline">
@@ -184,7 +184,7 @@
 
               <!-- textarea input -->
               <div class="form-outline mb-3 col-12  form-row form-floating">
-                <textarea id="textarea4" rows="2" name="description" class="form-control" formControlName="Description"></textarea>
+                <textarea id="textarea4" rows="2" name="description" [(ngModel)]="description" class="form-control" formControlName="description"></textarea>
                 <label class="form-label" for="textarea4">Description</label>
               </div>
 

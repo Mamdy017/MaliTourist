@@ -16,7 +16,7 @@ export class BoardComponent implements OnInit {
   p = 1;
 
   Paysobjet: PaysModele = {
-    idPays: 0,
+    id: 0,
     nom: '',
     capital: '',
     superficie: '',
@@ -59,12 +59,6 @@ export class BoardComponent implements OnInit {
 
   }
 
-  fileChang1(event: any) {
-    this.file1 = event.target.files[0]
-    console.log(event)
-
-  }
-
 
 
   AjoutPays() {
@@ -78,7 +72,7 @@ export class BoardComponent implements OnInit {
       heightAuto: false
     })
 
-    if (this.nom == "" || this.capital == '' || this.superficie == '' || this.file == null || this.file1 == null) {
+    if (this.nom == "" || this.capital == '' || this.superficie == '' || this.file == null) {
       swalWithBootstrapButtons.fire(
         this.message = " Veuillez bien remplir tous les champs !",
       )
@@ -95,7 +89,7 @@ export class BoardComponent implements OnInit {
 
       }).then((result) => {
         if (result.isConfirmed) {
-          this.service.ajouterPAys(this.Paysobjet.nom, this.Paysobjet.capital, this.Paysobjet.superficie, this.file, this.file1).subscribe(data => {
+          this.service.ajouterPAys(this.Paysobjet.nom, this.Paysobjet.capital, this.Paysobjet.superficie, this.file).subscribe(data => {
             if (data.status == true) {
               // this.route.navigateByUrl("/gestionentite")
               swalWithBootstrapButtons.fire(
