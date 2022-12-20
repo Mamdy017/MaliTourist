@@ -8,25 +8,27 @@ import { StorageService } from '../service/storage.service';
   styleUrls: ['./connexion.component.css']
 })
 export class ConnexionComponent implements OnInit {
-
-  form : any={
-    email:null,
-    password:null
-  }
-  connexionReussi= false;
-  connexionEchoue=false;
-  messageErreur= '';
-  roles:string[]=[];
+  form: any = {
+    username: null,
+    password: null
+  };
+  connexionReussi = false;
+  connexionEchoue = false;
+  messageErreur = '';
+  roles: string[] = [];
 
   constructor(private connexion:ConnexionService, private storage:StorageService ) { }
-
   ngOnInit(): void {
+    if (this.storage.connexionReussi()) {
+      this.connexionReussi = true;
+      this.roles = this.storage.recupererUser().roles;
+    }
   }
 
   onSubmit(): void {
-    const { email, password } = this.form;
+    const { username, password } = this.form;
 
-    this.connexion.connexioon(email, password).subscribe({
+    this.connexion.login(username, password).subscribe({
       next: data => {
         this.storage.enregistrer(data);
 

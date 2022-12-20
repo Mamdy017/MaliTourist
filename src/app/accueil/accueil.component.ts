@@ -38,6 +38,7 @@ export class AccueilComponent implements OnInit {
 
   ngOnInit(): void {
     this.idPays = this.routes.snapshot.params['idPays']
+    console.table("je suis la"+ this.idPays)
     this.paysService.afficherPaysParId(this.idPays).subscribe(resultat => {
       console.table(resultat)
       this.pays = resultat;
@@ -76,6 +77,8 @@ export class AccueilComponent implements OnInit {
 
 
   AjoutRegion() {
+
+    this.idPays = this.routes.snapshot.params['idPays']
     var pays = new PaysModele({
       "id": this.idPays
     })

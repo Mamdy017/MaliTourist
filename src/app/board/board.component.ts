@@ -13,7 +13,6 @@ import Swal from 'sweetalert2';
 export class BoardComponent implements OnInit {
 
   pays:any;
-  p = 1;
 
   Paysobjet: PaysModele = {
     id: 0,
@@ -21,20 +20,17 @@ export class BoardComponent implements OnInit {
     capital: '',
     superficie: '',
     drapeau: '',
-    image2:'',
+    // image2:'',
   }
 
   formmodule!: FormGroup;
-  // fichier!: File;
-  // fichier!: Fichier;
   message: string | undefined;
   contenu: any;
   nom !: string;
   capital !: string;
   superficie !: string;
   file: any;
-  file1: any;
-
+  // file1: any;
   constructor(private service: PaysServiceService, private formB: FormBuilder,) { }
 
   ngOnInit(): void {
@@ -74,12 +70,12 @@ export class BoardComponent implements OnInit {
 
     if (this.nom == "" || this.capital == '' || this.superficie == '' || this.file == null) {
       swalWithBootstrapButtons.fire(
-        this.message = " Veuillez bien remplir tous les champs !",
+        this.message = " Tous les champs sont obligatoire !",
       )
       // this.resetForm();
     } else {
       swalWithBootstrapButtons.fire({
-        title: 'Cette entité va etre ajooutée !!!!',
+        title: 'Cet pays va etre ajooutée !!!!',
         text: "Vous pouvez annuler ou confirmer!",
         icon: 'warning',
         showCancelButton: true,
@@ -93,7 +89,7 @@ export class BoardComponent implements OnInit {
             if (data.status == true) {
               // this.route.navigateByUrl("/gestionentite")
               swalWithBootstrapButtons.fire(
-                'Entité ajoutée avec succes!',
+                'Pays ajouté avec succes!',
                 'Vous êtes diriger vers la liste des entités.',
                 'success',)
                 console.log("je suis la ======================================================================== ================================================================================================================================================================================================================================================================================================================================================================================================================================"+ this.Paysobjet);

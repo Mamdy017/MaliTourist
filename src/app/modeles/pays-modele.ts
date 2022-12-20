@@ -4,7 +4,7 @@ export class PaysModele {
   capital!: string;
   superficie!: string;
   drapeau!: string;
-  image2 !:string;
+  // image2 !:string;
   constructor(init : Partial<PaysModele>){
     Object.assign(this, init)
   }

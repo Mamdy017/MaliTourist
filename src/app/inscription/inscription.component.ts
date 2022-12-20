@@ -26,7 +26,7 @@ export class InscriptionComponent implements OnInit {
   onSubmit(): void {
     const { nom,prenom, email, password } = this.form;
 
-    this.inscription.inscription(nom, prenom,email, password).subscribe({
+    this.inscription.register(nom,email, password).subscribe({
       next: data => {
         console.log(data);
         this.InscriptionReussi = true;
