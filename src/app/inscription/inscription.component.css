@@ -33,7 +33,7 @@ body {
 }
 .container {
   display: flex;
-  height: 520px;
+  height: 620px;
   margin: 0 auto;
   width: 840px;
 }
@@ -60,9 +60,9 @@ body {
   }
 }
 .login {
-  font-size: 50px;
-  font-weight: 900;
-  margin: 50px 40px 40px;
+  font-size: 30px;
+  font-weight: 500;
+  margin: 50px 10px 40px;
 }
 .eula {
   color: #999;

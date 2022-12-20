@@ -31,14 +31,34 @@
         </defs>
         <path d="m 40,120.00016 239.99984,-3.2e-4 c 0,0 24.99263,0.79932 25.00016,35.00016 0.008,34.20084 -25.00016,35 -25.00016,35 h -239.99984 c 0,-0.0205 -25,4.01348 -25,38.5 0,34.48652 25,38.5 25,38.5 h 215 c 0,0 20,-0.99604 20,-25 0,-24.00396 -20,-25 -20,-25 h -190 c 0,0 -20,1.71033 -20,25 0,24.00396 20,25 20,25 h 168.57143" />
       </svg> -->
-      <div class="form">
-        <label for="email">Email</label>
-        <input type="email" id="email">
-        <mat-divider class="py-1 tirete"></mat-divider>
-        <label for="password">Password</label>
-        <input type="password" id="password">
-        <mat-divider class="py-1 tirete"></mat-divider>
+      <form class="form" *ngIf="!connexionReussi" name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm"
+        novalidate>
+        <label for="email">Email <span style="color: red;">*</span></label>
+        <input type="email" id="email" name="email" [(ngModel)]="form.email" required #email="ngModel"
+          [ngClass]="{'is-invalid':f.submitted && email.errors}">
+          <mat-divider class="py-1 tirete"></mat-divider>
+        <div *ngIf="email.errors && f.submitted" class="invalid-feedback" style="color: red;">
+          L'adresse email est obligatoire!
+        </div>
+        <label for="password">Password <span style="color: red;">*</span></label>
+        <input type="password" id="password" name="password" [(ngModel)]="form.password" required minlength="6"
+          #password="ngModel" [ngClass]="{ 'is-invalid': f.submitted && password.errors }">
+          <mat-divider class="py-1 tirete"></mat-divider>
+        <div *ngIf="password.errors && f.submitted" class="invalid-feedback">
+          <div color="red" *ngIf="password.errors['required']" style="color: red;">Le mot de passe est obligatoir</div>
+          <div *ngIf="password.errors['minlength']" style="color: red;">
+            le mot de passe doit contenir au mois 6 caracters
+          </div>
+        </div>
         <input type="submit" id="submit" value="Submit">
+        <div class="form-group">
+          <div *ngIf="f.submitted && connexionEchoue" class="alert alert-danger" role="alert">
+           connextion echoué: {{ messageErreur }}
+          </div>
+        </div>
+      </form>
+      <div class="alert alert-success" *ngIf="connexionReussi">
+       connecter avec le role {{ roles }}.
       </div>
     </div>
   </div>
