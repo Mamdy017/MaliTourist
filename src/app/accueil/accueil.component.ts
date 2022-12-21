@@ -15,25 +15,38 @@ import { RegionServiceService } from '../service/region-service.service';
 
 })
 export class AccueilComponent implements OnInit {
-  file: any;
 
+  pays:any;
 
-  nom: string | undefined;
-  code_region: string | undefined;
-  superficie: string | undefined;
-  activite!: string;
-  description!: string;
-  file2!: File;
-  nomFile2!: string;
-  file3!: File;
-  nomFile3!: string;
-  message!: string;
-  file1!: File;
-  nomFile1! : string;
+  Regionobjet: RegionModele = {
+    idRegion: 0,
+    nom: '',
+    description: '',
+    activite: '',
+    code_region: '',
+    superficie: '',
+    pays: new PaysModele,
+    image1 : '',
+    image2 : '' ,
+    image3:'',
+  }
+
   formmodule!: FormGroup;
-   idPays : any;
-  pays! : PaysModele;
+    nom!: string;
+    description!: string;
+    activite!: string;
+    code_region!: string;
+    superficie!: string;
+    img1 :any;
+    img2:any;
+    img3:any;
 
+   idPays : any;
+
+  //  img1:any
+  //  img2:any
+  //  img3:any
+  message: string | undefined;
   constructor( private service:RegionServiceService, private routes: ActivatedRoute, private formB: FormBuilder, private paysService : PaysServiceService) { }
 
   ngOnInit(): void {
@@ -46,13 +59,13 @@ export class AccueilComponent implements OnInit {
 
     this.formmodule = this.formB.group({
       nom: ["", Validators.required],
-      file1: ["", Validators.required],
       code_region: ["", Validators.required],
       superficie: ["", Validators.required],
       description: ["", Validators.required],
       activite: ["", Validators.required],
-      file2: ["", Validators.required],
-      file3: ["", Validators.required],
+      img1: ["", Validators.required],
+      img2: ["", Validators.required],
+      img3: ["", Validators.required],
 
 
     })
@@ -63,38 +76,22 @@ export class AccueilComponent implements OnInit {
   }
 
   fileChang1(event: any) {
-    this.file1 = event.target.files[0]
-    this.nomFile1 = event.target.files[0]['name']
+    this.img1 = event.target.files[0]
+    // this.nomFile1 = event.target.files[0]['name']
   }
   fileChang2(event: any) {
-    this.file2 = event.target.files[0]
-    this.nomFile2 = event.target.files[0]['name']
+    this.img2 = event.target.files[0]
+    // this.nomFile2 = event.target.files[0]['name']
   }
   fileChang3(event: any) {
-    this.file3 = event.target.files[0]
-    this.nomFile3 = event.target.files[0]['name']
+    this.img3 = event.target.files[0]
+    console.log(event)
   }
 
 
   AjoutRegion() {
-
     this.idPays = this.routes.snapshot.params['idPays']
-    var pays = new PaysModele({
-      "id": this.idPays
-    })
-    let region = new RegionModele(
-      {
-         "nom": this.nom,
-         "code_region": this.code_region,
-         "superficie": this.superficie,
-         "description": this.description,
-         "activite":this.activite,
-         "img1": this.nomFile1,
-         "img2":this.nomFile2,
-         "img3" :this.nomFile3,
-         "pays": pays,
-       }
-    )
+    console.table('je suis'+this.idPays)
     const swalWithBootstrapButtons = Swal.mixin({
       customClass: {
         cancelButton: 'btn btn-danger',
@@ -105,16 +102,14 @@ export class AccueilComponent implements OnInit {
       heightAuto: false
     })
 
-    
-
-    if (this.nom == "" || this.code_region == '' || this.superficie == '' || this.activite == '' || this.description == ''  ||  this.file1 == null || this.file2 == null || this.file3 == null) {
+    if (this.nom == "" || this.code_region == '' || this.superficie == '' || this.activite == '' || this.description == ''  ||  this.img1 == null || this.img2 == null || this.img3 == null) {
       swalWithBootstrapButtons.fire(
         this.message = " Veuillez bien remplir tous les champs !",
       )
       // this.resetForm();
     } else {
       swalWithBootstrapButtons.fire({
-        title: 'Cette entité va etre ajooutée !!!!',
+        title: 'Cet pays va etre ajooutée !!!!',
         text: "Vous pouvez annuler ou confirmer!",
         icon: 'warning',
         showCancelButton: true,
@@ -124,28 +119,15 @@ export class AccueilComponent implements OnInit {
 
       }).then((result) => {
         if (result.isConfirmed) {
-          this.service.ajouterRegion(region).subscribe(data => {
-            console.table(data)
+          this.service.ajouterRegion(this.Regionobjet.nom, this.Regionobjet.code_region, this.Regionobjet.superficie,this.Regionobjet.activite,this.Regionobjet.description, this.idPays, this.img1,this.img2,this.img3).subscribe(data => {
             if (data.status == true) {
               // this.route.navigateByUrl("/gestionentite")
               swalWithBootstrapButtons.fire(
-                'Entité ajoutée avec succes!',
+                'Pays ajouté avec succes!',
                 'Vous êtes diriger vers la liste des entités.',
                 'success',)
-                console.log("je suis la ============================ "+ region);
+                console.log("je suis la ==="+ this.Regionobjet);
 
-            if(this.file1 != null && this.file2 != null && this.file3 != null){
-             console.table('je suis la');
-             this.service.uploaderImage(this.file1).subscribe(data => {
-              console.log("----------------b")
-             })
-             this.service.uploaderImage(this.file2).subscribe(data => {
-              console.log("----------------b")
-             })
-             this.service.uploaderImage(this.file3).subscribe(data => {
-              console.log("----------------b")
-             })
-              }
             } else {
               swalWithBootstrapButtons.fire(
                 this.message = data.contenu,
@@ -167,10 +149,12 @@ export class AccueilComponent implements OnInit {
     }
 
 
-    // this.RegionObject = this.formmodule.value
+    this.Regionobjet = this.formmodule.value
     let data = new FormData();
 
   }
+
+
 
 
 }

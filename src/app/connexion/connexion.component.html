@@ -11,23 +11,17 @@
     <div class="right">
       <form class="form" *ngIf="!connexionReussi" name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm"
         novalidate>
-        <label for="email">Email <span style="color: red;">*</span></label>
-        <input
-          type="text"
-          class="form-control"
-          name="username"
-          [(ngModel)]="form.username"
-          required
-          #username="ngModel"
-          [ngClass]="{ 'is-invalid': f.submitted && username.errors }"
-        />
+        <label for="email">Nom d'utilisateur <span style="color: red;">*</span></label>
+        <input type="text" class="form-control" name="username" [(ngModel)]="form.username" required #username="ngModel"
+          [ngClass]="{ 'is-invalid': f.submitted && username.errors }" />
         <div *ngIf="username.errors && f.submitted" class="invalid-feedback">
-          Username is required!
+        Le nom d'utilisateur est obligatoire
         </div>
+        <mat-divider class="py-1 tirete"></mat-divider>
         <label for="password">Password <span style="color: red;">*</span></label>
         <input type="password" id="password" name="password" [(ngModel)]="form.password" required minlength="6"
           #password="ngModel" [ngClass]="{ 'is-invalid': f.submitted && password.errors }">
-          <mat-divider class="py-1 tirete"></mat-divider>
+        <mat-divider class="py-1 tirete"></mat-divider>
         <div *ngIf="password.errors && f.submitted" class="invalid-feedback">
           <div color="red" *ngIf="password.errors['required']" style="color: red;">Le mot de passe est obligatoir</div>
           <div *ngIf="password.errors['minlength']" style="color: red;">
@@ -37,12 +31,12 @@
         <input type="submit" id="submit" value="Submit">
         <div class="form-group">
           <div *ngIf="f.submitted && connexionEchoue" class="alert alert-danger" role="alert">
-           connextion echoué: {{ messageErreur }}
+            connextion echoué: {{ messageErreur }}
           </div>
         </div>
       </form>
       <div class="alert alert-success" *ngIf="connexionReussi">
-       connecter avec le role {{ roles }}.
+        connecter avec le role {{ roles }}.
       </div>
     </div>
   </div>

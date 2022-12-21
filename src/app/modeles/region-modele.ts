@@ -9,9 +9,9 @@ export class RegionModele {
     code_region!: string;
     superficie!: string;
     pays!: PaysModele;
-    img1! : string;
-    img2! : string ;
-    img3!:string;
+    image1! : string;
+    image2! : string ;
+    image3!:string;
    constructor(init: Partial<RegionModele>){
     Object.assign(this, init)
    } 

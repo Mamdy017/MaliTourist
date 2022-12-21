@@ -52,7 +52,6 @@ export class BoardComponent implements OnInit {
   fileChang(event: any) {
     this.file = event.target.files[0]
     console.log(event)
-
   }
 
 
