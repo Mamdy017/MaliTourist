@@ -1,6 +1,7 @@
 import { BreakpointObserver } from '@angular/cdk/layout';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatSidenav } from '@angular/material/sidenav';
+import { Subscription } from 'rxjs';
 import { ConnexionService } from '../service/connexion.service';
 import { StorageService } from '../service/storage.service';
 
@@ -13,6 +14,13 @@ export class SidebarComponent implements OnInit {
   @ViewChild(MatSidenav)
   sidenav!: MatSidenav;
    currentUser: any;
+  isLoggedIn: any;
+  roles: any;
+  showAdminBoard: any;
+  showModeratorBoard: any;
+  username: any;
+  eventBusSub?:Subscription ;
+  eventBusService: any;
 
   constructor(private observer: BreakpointObserver, private Connexion:ConnexionService, private storage:StorageService) { }
 
@@ -31,7 +39,23 @@ export class SidebarComponent implements OnInit {
     var moi = this.currentUser.id;
 
     console.log("je suis id user" + moi);
+
+    this.isLoggedIn = this.storage.connexionReussi();
+
+    if (this.isLoggedIn) {
+      const user = this.storage.recupererUser();
+      this.roles = user.roles;
+
+      this.showAdminBoard = this.roles.includes('ROLE_ADMIN');
+      this.showModeratorBoard = this.roles.includes('ROLE_USER');
+
+      this.username = user.username;
+    }
+
+  
   }
+  
+  
 
   logout(): void {
     this.Connexion.logout().subscribe({

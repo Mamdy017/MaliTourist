@@ -1,26 +1,27 @@
-<mat-toolbar>
-    <button mat-icon-button *ngIf="sidenav.mode === 'over'" (click)="sidenav.toggle()">
-        <mat-icon *ngIf="!sidenav.opened">
-            menu
-        </mat-icon>
-        <mat-icon *ngIf="sidenav.opened">
-            close
-        </mat-icon>
-    </button>
-    <div class="row ro1   vw-100">
-        <div class="col-md-6 r1 d-flex justify-content-end">
-            <h1 class="py-3 r1">MaliTourist</h1>
-
+<div class="" *ngIf="showModeratorBoard">
+    <mat-toolbar >
+        <button mat-icon-button *ngIf="sidenav.mode === 'over'" (click)="sidenav.toggle()">
+            <mat-icon *ngIf="!sidenav.opened">
+                menu
+            </mat-icon>
+            <mat-icon *ngIf="sidenav.opened">
+                close
+            </mat-icon>
+        </button>
+        <div class="row ro1   vw-100">
+            <div class="col-md-6 r1 d-flex justify-content-end">
+                <h1 class="py-3 r1">MaliTourist</h1>
+                
+            </div>
+            <div class="col-md-6  d-flex justify-content-end">
+                <img class="avatar1" src="../assets/logo1.png" />
+                
+            </div>
+            
         </div>
-        <div class="col-md-6  d-flex justify-content-end">
-            <img class="avatar1" src="../assets/logo1.png" />
-
-        </div>
-
-    </div>
-
-</mat-toolbar>
-<mat-sidenav-container>
+        
+    </mat-toolbar>
+    <mat-sidenav-container>
     <mat-sidenav #sidenav="matSidenav" class="mat-elevation-z8">
         <img class="avatar mat-elevation-z8" src="../assets/logo.png" />
         <div class="flex">
@@ -28,7 +29,7 @@
             <p class="designation">Software Engineer</p>
         </div>
         <mat-divider class="py-1 tirete"></mat-divider>
-
+        
         <button mat-button class="menu-button" routerLinkActive="active" routerLink="/sidebar/board">
             <mat-icon>home</mat-icon>
             <span>Le board</span>
@@ -39,7 +40,7 @@
             <span>Régions</span>
         </button>
         <div class="py-1"></div>
-        <button mat-button class="menu-button" routerLinkActive="active" routerLink="/sidebar/user">
+        <button mat-button class="menu-button" *ngIf="showAdminBoard" routerLinkActive="active" routerLink="/sidebar/user">
             <mat-icon>person</mat-icon>
             <span>Profile</span>
             <h5 sty>bbb</h5>
@@ -83,7 +84,7 @@
                                 </div>
                             </div>
                         </div>
-
+                        
                     </div>
                 </div>
                 <!-- Footer -->
@@ -91,3 +92,7 @@
         </div>
     </mat-sidenav-content>
 </mat-sidenav-container>
+</div>
+<div *ngIf="!showAdminBoard">
+    <h1>cncnncn</h1>
+</div>
