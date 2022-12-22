@@ -4,6 +4,7 @@ import { Fichier, PaysModele } from '../modeles/pays-modele';
 // import { Fichier, PaysModele } from '../modeles/pays-modele';
 import { PaysServiceService } from '../service/pays-service.service';
 import Swal from 'sweetalert2';
+import { RegionServiceService } from '../service/region-service.service';
 
 @Component({
   selector: 'app-board',
@@ -14,7 +15,7 @@ export class BoardComponent implements OnInit {
 
   pays:any;
 
-  Paysobjet: PaysModele = {
+  Paysobjet: PaysModele = { 
     id: 0,
     nom: '',
     capital: '',
@@ -30,8 +31,10 @@ export class BoardComponent implements OnInit {
   capital !: string;
   superficie !: string;
   file: any;
+  idPays:any
+  Region: any;
   // file1: any;
-  constructor(private service: PaysServiceService, private formB: FormBuilder,) { }
+  constructor(private service: PaysServiceService, private formB: FormBuilder, private region:RegionServiceService) { }
 
   ngOnInit(): void {
     this.formmodule = this.formB.group({
@@ -45,6 +48,11 @@ export class BoardComponent implements OnInit {
     this.service.afficherPays().subscribe(data => {
       this.pays = data;
       console.table(this.pays);
+    });
+
+    this.region.afficherRegion().subscribe(data => {
+      this.Region = data;
+      console.table(this.region);
     });
   }
 
@@ -62,8 +70,6 @@ export class BoardComponent implements OnInit {
       customClass: {
         cancelButton: 'btn btn-danger',
         confirmButton: 'btn btn-primary',
-
-
       },
       heightAuto: false
     })
@@ -74,6 +80,7 @@ export class BoardComponent implements OnInit {
       )
       // this.resetForm();
     } else {
+      console.table("je suis" + this.nom + this.capital +this.superficie +this.file )
       swalWithBootstrapButtons.fire({
         title: 'Cet pays va etre ajooutée !!!!',
         text: "Vous pouvez annuler ou confirmer!",
@@ -86,7 +93,7 @@ export class BoardComponent implements OnInit {
       }).then((result) => {
         if (result.isConfirmed) {
           this.service.ajouterPAys(this.Paysobjet.nom, this.Paysobjet.capital, this.Paysobjet.superficie, this.file).subscribe(data => {
-            if (data.status == true) {
+           
               // this.route.navigateByUrl("/gestionentite")
               swalWithBootstrapButtons.fire(
                 'Pays ajouté avec succes!',
@@ -94,12 +101,7 @@ export class BoardComponent implements OnInit {
                 'success',)
                 console.log("je suis la ======================================================================== ================================================================================================================================================================================================================================================================================================================================================================================================================================"+ this.Paysobjet);
 
-            } else {
-              swalWithBootstrapButtons.fire(
-                this.message = data.contenu,
-
-              )
-            }
+           this.reloadPage();
           })
         } else if (
           /* Read more about handling dismissals below */
@@ -122,6 +124,8 @@ export class BoardComponent implements OnInit {
 
 
 
-
+reloadPage():void{
+  window.location.reload();
+}
 
 }

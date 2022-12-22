@@ -9,48 +9,16 @@
       </button>
     </div>
     <div class="right">
-      <!-- <svg viewBox="0 0 320 300">
-        <defs>
-          <linearGradient
-                          inkscape:collect="always"
-                          id="linearGradient"
-                          x1="13"
-                          y1="193.49992"
-                          x2="307"
-                          y2="193.49992"
-                          gradientUnits="userSpaceOnUse">
-            <stop
-                  style="stop-color:#ff00ff;"
-                  offset="0"
-                  id="stop876" />
-            <stop
-                  style="stop-color:#ff0000;"
-                  offset="1"
-                  id="stop878" />
-          </linearGradient>
-        </defs>
-        <path d="m 40,120.00016 239.99984,-3.2e-4 c 0,0 24.99263,0.79932 25.00016,35.00016 0.008,34.20084 -25.00016,35 -25.00016,35 h -239.99984 c 0,-0.0205 -25,4.01348 -25,38.5 0,34.48652 25,38.5 25,38.5 h 215 c 0,0 20,-0.99604 20,-25 0,-24.00396 -20,-25 -20,-25 h -190 c 0,0 -20,1.71033 -20,25 0,24.00396 20,25 20,25 h 168.57143" />
-      </svg> -->
       <form class="form" *ngIf="!InscriptionReussi" name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm"
         novalidate>
-        <label for="nom">Nom</label>
-        <input type="nom" class="input" id="nom" name="nom" [(ngModel)]="form.nom" required maxlength="20" #nom="ngModel"
-          [ngClass]="{ 'is-invalid': f.submitted && nom.errors }">
+        <label for="nom">Le nom d'utilisateur <span style="color: red;">*</span></label>
+        <input type="text" class="input" id="username" name="username" [(ngModel)]="form.username" required maxlength="20"
+          #username="ngModel" [ngClass]="{ 'is-invalid': f.submitted && username.errors }">
         <mat-divider class="py-1 tirete"></mat-divider>
-        <div class="invalid-feedback" *ngIf="nom.errors && f.submitted">
-          <div *ngIf="nom.errors['required']">Le nom est obligatoire!</div>
-          <div *ngIf="nom.errors['maxlength']">
-            Le nom ne doit pas depasser 20 caracters
-          </div>
-        </div>
-        <label for="nom">Prenom</label>
-        <input type="prenom"class="input" id="prenom" name="prenom" [(ngModel)]="form.prenom" required  maxlength="20"
-          #prenom="ngModel" [ngClass]="{ 'is-invalid': f.submitted && prenom.errors }">
-        <mat-divider class="py-1 tirete"></mat-divider>
-        <div class="invalid-feedback" *ngIf="prenom.errors && f.submitted">
-          <div *ngIf="prenom.errors['required']">Le prenom est obligatoire</div>
-          <div *ngIf="prenom.errors['maxlength']">
-            le prenom ne doit pas depasser 20 caracters
+        <div class="invalid-feedback" *ngIf="username.errors && f.submitted">
+          <div *ngIf="username.errors['required']">Le nom est obligatoire!</div>
+          <div *ngIf="username.errors['maxlength']">
+            Le nom d'utilisateur ne doit pas depasser 20 caracters
           </div>
         </div>
         <label for="email">Email <span style="color: red;">*</span></label>
@@ -60,9 +28,10 @@
         <div *ngIf="email.errors && f.submitted" class="invalid-feedback" style="color: red;">
           L'adresse email est obligatoire!
         </div>
-        <label for="password">Mot de passe</label>
-        <input type="password" class="input" id="password"  class="form-control" name="password" [(ngModel)]="form.password" required minlength="6"
-        #password="ngModel" [ngClass]="{ 'is-invalid': f.submitted && password.errors }">
+        <label for="password">Mot de passe <span style="color: red;">*</span></label>
+        <input type="password" class="input" id="password" class="form-control" name="password"
+          [(ngModel)]="form.password" required minlength="6" #password="ngModel"
+          [ngClass]="{ 'is-invalid': f.submitted && password.errors }">
         <mat-divider class="py-1 tirete"></mat-divider>
         <div *ngIf="password.errors && f.submitted" class="invalid-feedback">
           <div color="red" *ngIf="password.errors['required']" style="color: red;">Le mot de passe est obligatoir</div>
@@ -70,25 +39,26 @@
             le mot de passe doit contenir au mois 6 caracters
           </div>
         </div>
-        <label for="password">Confirmation du mot de passe</label>
-        <input type="password" class="input" id="password2"  class="form-control" name="password2" [(ngModel)]="form.password2"
-        #password2="ngModel" [ngClass]="{ 'is-invalid': f.submitted && password2.errors && password!=password2 }">
+        <!-- <label for="password">Confirmation du mot de passe</label>
+        <input type="password" class="input" id="password2" class="form-control" name="password2"
+          [(ngModel)]="form.password2" #password2="ngModel"
+          [ngClass]="{ 'is-invalid': f.submitted && password2.errors && password!=password2 }">
         <mat-divider class="py-1 tirete"></mat-divider>
         <div *ngIf="password.errors && f.submitted" class="invalid-feedback">
           <div *ngIf="password!=password2" style="color: red;">
             le mot de passe doit contenir au mois 6 caracters
           </div>
-        </div>
+        </div> -->
         <input type="submit" id="submit" value="Submit">
         <div class="form-group">
           <div *ngIf="f.submitted && Inscriptionechoue" class="alert alert-danger" role="alert">
-           connextion echoué: {{ messageErreur }}
+            connextion echoué: {{ messageErreur }}
           </div>
         </div>
       </form>
       <div class="alert alert-success" *ngIf="InscriptionReussi">
         Inscription effectué
-       </div>
+      </div>
     </div>
   </div>
 </div>

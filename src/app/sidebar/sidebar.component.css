@@ -1,0 +1,154 @@
+mat-toolbar {
+    background: #464A59;
+    color: white;
+  }
+  
+  mat-sidenav {
+    margin: 16px;
+    width: 200px;
+    border-right: none;
+    background: white;
+    color: #464A59;
+    border-radius: 10px;
+    padding: 16px;
+    text-align: center;
+    height: 88vh !important;
+  
+  }
+  
+  button.active{
+    background-color: #464A59;
+    color: #fff;
+  }
+  button.active span,button:hover span {
+    color: #fff;
+  }
+  
+  button:hover {
+    background-color: #464A59;
+    color: #fff;
+  }
+  
+  .content {
+  
+    /* border-radius: 10px;
+    margin: 16px;
+    margin-left: 32px; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* font-size: 2rem; */
+    color: #464A59;
+    background-color: #ccc;
+    background: linear-gradient(rgba(0, 0, 0, 0.121), rgba(0, 0, 0, 0.024)), url('https://www.shutterstock.com/image-photo/mali-ston-waterfront-aerial-view-260nw-1081881188.jpg');
+    background-size: cover;
+    width: 100%;
+  }
+  
+  mat-sidenav-container {
+    height: calc(100vh - 65px);
+  }
+  
+  .menu-button {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    font-size: 1rem;
+  }
+  
+  mat-icon {
+    margin-right: 8px;
+  }
+  
+  .avatar {
+    margin-top: 16px;
+    width: 100px;
+    height: 81px;
+    border-radius: 50%;
+  }
+  
+  .avatar1 {
+    margin-top: 1px;
+    width: 80px;
+    height: 65px;
+    border-radius: 50%;
+    /* margin-left: 95%; */
+  }
+  
+  
+  
+  @media only screen and (max-width: 767px) {
+  .r1{
+    display: none;
+  }
+  }
+  
+  .name {
+    margin-top: 8px;
+    font-weight: normal;
+  }
+  
+  .designation {
+    margin-top: 2px;
+    font-size: 0.7rem;
+    color: lightgrey;
+  }
+  
+  mat-divider {
+    margin-top: 16px;
+    margin-bottom: 16px;
+    background-color: rgba(255, 255, 255, 0.5);
+  }
+  
+  .dec {
+    position: absolute;
+    bottom: 8px;
+    width: 85%;
+    background-color: #E74447;
+    color:white;
+    /* on le colle en bas */
+    /* Hauteur du pied de page */
+  }
+  .dec2{
+    color:white ;
+  }
+  
+  .dec1 {
+    position: absolute;
+    bottom: 40px;
+    width: 85%;
+    /* on le colle en bas */
+    /* Hauteur du pied de page */
+  }
+  
+  span {
+    font-size: 16px;
+    color: #464A59;
+  }
+  
+  p {
+    font-size: 16px;
+    color: #464A59;
+  }
+  
+  .hr {
+    width: 90%;
+    color:#464A59 ;
+    size: 2px;
+    margin-right: auto;
+    margin-left: auto;
+  }
+  
+  .footer {
+    height: 140px;
+  }
+  
+  .mail {
+    font-size: 14px;
+  }
+  .footer{
+    background-color: #fff;
+    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);  /* Hauteur du pied de page */
+  }
+  

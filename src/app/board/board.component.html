@@ -5,8 +5,8 @@
       <div class="card radius-10 border-start border-end border-0 border-2 border-success">
         <div class="card-body">
           <div class="d-flex align-items-center">
-            <div>
-              <p class="mb-0 text-secondary"> Total Pays 20</p>
+            <div  class=" w-100">
+              <p class="mb-0 text-secondary"> Total Pays <b style="margin-left:20% ; font-size: 30px; font-weight: 500">{{pays.length}}</b></p>
               <h1 class="my-3 text-danger">Date 2022</h1>
               <!-- <p class="mb-0 font-13">-4.5% from last week</p> -->
             </div>
@@ -23,8 +23,8 @@
       <div class="card radius-10 border-start border-end border-0 border-2 border-warning">
         <div class="card-body">
           <div class="d-flex align-items-center">
-            <div>
-              <p class="mb-0 text-secondary">Total Population 220 M</p>
+            <div  class=" w-100">
+              <p class="mb-0 text-secondary">Total Population<b style="margin-left:20% ; font-size: 30px; font-weight: 500">220 M</b> </p>
               <h1 class="my-3 text-danger">Date 2022</h1>
               <!-- <p class="mb-0 font-13">+8.4% from last week</p> -->
             </div>
@@ -41,8 +41,8 @@
       <div class="card radius-10 border-start border-end border-0 border-2 border-danger">
         <div class="card-body">
           <div class="d-flex align-items-center">
-            <div>
-              <p class="mb-0 text-secondary">Totale Région 550</p>
+            <div class=" w-100">
+              <p class="mb-0 text-secondary">Totale Région <b style="margin-left:20% ; font-size: 30px; font-weight: 500">{{Region.length}}</b></p>
               <h1 class="my-3 text-danger">Date 2022</h1>
               <!-- <p class="mb-0 font-13">+5.4% from last week</p> -->
             </div>
@@ -86,7 +86,7 @@
         <mat-card-title-group>
           <mat-card-title class="titre1">{{Pays.nom}}</mat-card-title>
           <mat-card-subtitle class="titre1">{{Pays.capital}}</mat-card-subtitle>
-          <img mat-card-sm-image src="C:/Users/mccamara/Desktop/MaliTourist/Nouveau dossier/Scucom/src/main/resources/image{{Pays.drapeau}}" style="margin-left: 30%;">
+          <img mat-card-sm-image src="../../assets/mesimages/{{Pays.drapeau}}" style="margin-left: 30%;">
         </mat-card-title-group>
       </mat-card-header>
       <mat-card-content>
@@ -101,7 +101,7 @@
           </div>
           <div class="col-md-3">
             <div class=" py-2"></div>
-            <button mat-button class="menu-button bg-danger" routerLinkActive="active" [routerLink]="['/accueil',Pays.id]">
+            <button mat-button class="menu-button bg-danger" routerLinkActive="active" [routerLink]="['/sidebar/accueil',Pays.id]">
               <!-- <mat-icon>person</mat-icon> -->
               <span>Profile</span>
             </button>

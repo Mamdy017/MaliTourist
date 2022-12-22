@@ -2,19 +2,20 @@ import { PaysModele } from "./pays-modele";
 
 export class RegionModele {
 
-  idRegion!: number;
+  id!: number;
     nom!: string;
-    description!: string;
-    activite!: string;
     code_region!: string;
+    activite!: string;
     superficie!: string;
-    pays!: PaysModele;
-    img1! : string;
-    img2! : string ;
-    img3!:string;
-   constructor(init: Partial<RegionModele>){
-    Object.assign(this, init)
-   } 
+    description!: string;
+    // pays!: PaysModele;
+    image1! : string;
+    image2! : string ;
+    image3!:string;
+    idPays!:any;
+  //  constructor(init: Partial<RegionModele>){
+  //   Object.assign(this, init)
+  //  } 
 }
 // export class Fichier {
 //   photoentite!: string;

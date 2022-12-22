@@ -10,34 +10,13 @@ import { StorageService } from './service/storage.service';
 })
 
 export class AppComponent { title = 'MaliTourist';
-  @ViewChild(MatSidenav)
- sidenav!: MatSidenav;
+ 
 
-  constructor(private observer: BreakpointObserver, private Connexion:ConnexionService, private storage:StorageService) {}
+  constructor() {}
 
   ngAfterViewInit() {
-    this.observer.observe(['(max-width: 767px)']).subscribe((res) => {
-      if (res.matches) {
-        this.sidenav.mode = 'over';
-        this.sidenav.close();
-      } else {
-        this.sidenav.mode = 'side';
-        this.sidenav.open();
-      }
-    });
+    
   }
-  logout(): void {
-    this.Connexion.logout().subscribe({
-      next: res => {
-        console.log(res);
-        this.storage.clean();
-
-        window.location.reload();
-      },
-      error: err => {
-        console.log(err);
-      }
-    });
-  }
+  
 
 }

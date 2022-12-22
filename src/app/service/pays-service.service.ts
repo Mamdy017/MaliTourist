@@ -30,7 +30,7 @@ export class PaysServiceService {
   afficherPays() :Observable<any>{
     return this.http.get("http://localhost:8080/pays/liste");
   }
-  afficherPaysParId(id_pays : number) :Observable<PaysModele>{
-    return this.http.get<PaysModele>(`http://localhost:8080/pays/{id_pays}`);
+  afficherPaysParId(id_pays : number) :Observable<any>{
+    return this.http.get(`http://localhost:8080/pays/${id_pays}`);
   }
 }

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { ConnexionService } from '../service/connexion.service';
 import { StorageService } from '../service/storage.service';
 
@@ -17,7 +18,11 @@ export class ConnexionComponent implements OnInit {
   messageErreur = '';
   roles: string[] = [];
 
-  constructor(private connexion:ConnexionService, private storage:StorageService ) { }
+  constructor(private connexion:ConnexionService,
+     private storage:StorageService,
+     private router:Router
+     
+     ) { }
   ngOnInit(): void {
     if (this.storage.connexionReussi()) {
       this.connexionReussi = true;
@@ -35,7 +40,8 @@ export class ConnexionComponent implements OnInit {
         this.connexionEchoue = false;
         this.connexionReussi = true;
         this.roles = this.storage.recupererUser().roles;
-        this.reloadPage();
+        //this.reloadPage();
+        this.router.navigateByUrl("/sidebar/board")
       },
       error: err => {
         this.messageErreur = err.error.message;

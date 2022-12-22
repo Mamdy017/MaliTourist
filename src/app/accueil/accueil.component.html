@@ -5,7 +5,7 @@
         <div class="card-body">
           <div class="d-flex align-items-center">
             <div>
-              <p class="mb-0 text-secondary">Régions 20</p>
+              <p class="mb-0 text-secondary">Régions {{recent.length}}</p>
               <h1 class="my-3 text-danger">Date 2022</h1>
               <!-- <p class="mb-0 font-13">-4.5% from last week</p> -->
             </div>
@@ -42,7 +42,7 @@
           <div class="d-flex align-items-center">
             <div>
               <p class="mb-0 text-secondary">Superficie</p>
-              <h1 class="my-3 text-danger">1241238 km²</h1>
+              <h1 class="my-3 text-danger">{{pays1.sperficie}}</h1>
               <!-- <p class="mb-0 font-13">+5.4% from last week</p> -->
             </div>
             <div class="widgets-icons-2 rounded-circle bg-gradient-bloody text-white ms-auto">
@@ -59,77 +59,32 @@
     <mat-card class="example-card img" style="background-image: url('../../assets/MALI_Koulouba.jpg');">
       <mat-card-header>
         <mat-card-title class="texte">Bienvenue sur Mali Tourisme</mat-card-title>
-        <mat-card-subtitle class="texte1 py-5">La mosquée de Djéné</mat-card-subtitle>
+        <mat-card-subtitle class="texte1 py-5" ></mat-card-subtitle>
       </mat-card-header>
       <mat-card-content>
-        <p class="texte1">Une application qui presente les regions
-          du Mali</p>
-        <p class="texte1">L culture malienne</p>
+        <p class="texte1" >Pays: {{pays1.nom}}</p>
+        <p class="texte1">Bamako:{{pays1.capital}}</p>
       </mat-card-content>
     </mat-card>
   </div>
   <div class="row">
     <h1 class="d-flex justify-content-center" style="font-family: sans-serif;"><b>Région récentes</b></h1>
-    <div class="col-sm-3 py-1">
-      <mat-card class="example-card" routerLink="/details">
-        <mat-card-header>
-          <div mat-card-avatar class="example-header-image"></div>
-          <mat-card-title style="text-align: center;">SK</mat-card-title>
-          <mat-card-subtitle>Sikasso</mat-card-subtitle>
-        </mat-card-header>
-        <img mat-card-image src="../../assets/images.jpg" style="height:150px;" alt="Photo of a Shiba Inu">
-        <mat-card-content>
-          <p>
-            The Shiba Inu is the smallest of the six original and distinct spitz breeds
-          </p>
-        </mat-card-content>
-      </mat-card>
-    </div>
-    <div class="col-sm-3 py-1">
+    <div class="col-sm-3 py-1" *ngFor="let regionRecent of recent">
       <mat-card class="example-card">
         <mat-card-header>
           <div mat-card-avatar class="example-header-image"></div>
-          <mat-card-title style="text-align: center;">SL</mat-card-title>
-          <mat-card-subtitle>Sélingué</mat-card-subtitle>
+          <mat-card-title style="text-align: center;">{{regionRecent[2]}}</mat-card-title>
+          <mat-card-subtitle>{{regionRecent[7]}}</mat-card-subtitle>
         </mat-card-header>
-        <img mat-card-image src="../../assets/barrage-de-manantali.jpg" style="height:150px;"
-          alt="Photo of a Shiba Inu">
+        <img mat-card-image src="../../assets/mesimages/{{regionRecent[4]}}" style="height:150px;" alt="Photo of a Shiba Inu">
         <mat-card-content>
           <p>
-            The Shiba Inu is the smallest of the six original and distinct spitz breeds
+           {{regionRecent[3]}}
           </p>
-        </mat-card-content>
-      </mat-card>
-    </div>
-
-
-    <div class="col-sm-3 py-1">
-      <mat-card class="example-card">
-        <mat-card-header>
-          <div mat-card-avatar class="example-header-image"></div>
-          <mat-card-title style="text-align: center;">SG</mat-card-title>
-          <mat-card-subtitle>Segou</mat-card-subtitle>
-        </mat-card-header>
-        <img mat-card-image src="../../assets/16.jpg" style="height:150px;" alt="Photo of a Shiba Inu">
-        <mat-card-content>
-          <p>
-            The Shiba Inu is the smallest of the six original and distinct spitz breeds
-          </p>
-        </mat-card-content>
-      </mat-card>
-    </div>
-    <div class="col-sm-3 py-1">
-      <mat-card class="example-card">
-        <mat-card-header>
-          <div mat-card-avatar class="example-header-image"></div>
-          <mat-card-title style="text-align: center;">KY</mat-card-title>
-          <mat-card-subtitle>Kayes</mat-card-subtitle>
-        </mat-card-header>
-        <img mat-card-image src="../../assets/kayes.jpg" style="height:150px;" alt="Photo of a Shiba Inu">
-        <mat-card-content>
-          <p>
-            The Shiba Inu is the smallest of the six original and distinct spitz breeds
-          </p>
+          <button align="end" mat-button class="menu-button" [routerLink]="['/sidebar/details',regionRecent[0]]">
+            <mat-icon>local_hospital</mat-icon>
+            <span>Voir plus</span>
+          </button>
         </mat-card-content>
       </mat-card>
     </div>
@@ -148,43 +103,93 @@
             <button type="button" class="btn-close" data-mdb-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body p-4">
-            <form class="row " [formGroup]="formmodule" (ngSubmit)="AjoutRegion()">
+             <!--<form class="row "  [formGroup]="formodule" (ngSubmit)="AjoutRegion()">
+              Name input 
+              <div class="form-outline col-md-6">
+                <input type="text" name="nom"  formControlName="nom" id="name" placeholder="Nom"
+                  class="form form-control inputvalue">
+                <label for="name">Nom</label>
+              </div>
+
+               Email input 
+              <div class="form-outline col-md-6 ">
+                <input type="text" id="" name="code_region"   class="form-control" formControlName="code_region" placeholder="Code region" />
+                <label class="form-label" for="code_region"> Code region</label>
+              </div>
+              <div class="form-outline  col-md-6 ">
+                <input type="text" id="" name="activite"  formControlName="activite" class="form-control" placeholder="Activité" />
+                <label class="form-label" for="activite">Activité</label>
+              </div>
+              <div class="form-outline  col-md-6 ">
+                <input type="text" id="" name="superficie"  class="form-control" formControlName="superficie" placeholder="Superficie" />
+                <label class="form-label" for="superficie">Superficie</label>
+              </div>
+              <div class="form-outline">
+                <input type="file" id="" class="form-control" formControlName="img1" name="imag1" (change)="fileChang1($event)" />
+                <label class="form-label" for="image1">Image1 du région</label>
+              </div>
+              <div class="form-outline">
+                <input type="file" id="" class="form-control" formControlName="img2" name="img2" (change)="fileChang2($event)" />
+                <label class="form-label" for="image2">Image2 du région</label>
+              </div>
+              <div class="form-outline">
+                <input type="file" id="" class="form-control" formControlName="img3" name="img3" (change)="fileChang3($event)" />
+                <label class="form-label" for="image3">Image3 du région</label>
+              </div>
+
+              textarea input 
+              <div class="form-outline mb-3 col-12  form-row form-floating">
+                <textarea id="textarea4" rows="2" name="description"  class="form-control" formControlName="description"></textarea>
+                <label class="form-label" for="textarea4">Description</label>
+              </div>
+
+
+               Checkbox 
+
+               Submit button 
+              <button type="submit" class="btn btn-primary ">Ajouter la région</button>
+            </form>-->
+
+
+            <!--deuxieme methode-->
+
+            <form class="row " >
               <!-- Name input -->
               <div class="form-outline col-md-6">
-                <input type="text" name="nom" [(ngModel)]="nom" formControlName="nom" id="name" placeholder="Nom"
+                <input type="text" name="nom"  [(ngModel)]="nom" id="name" placeholder="Nom"
                   class="form form-control inputvalue">
                 <label for="name">Nom</label>
               </div>
 
               <!-- Email input -->
               <div class="form-outline col-md-6 ">
-                <input type="text" id="" name="code_region" [(ngModel)]="code_region"  class="form-control" formControlName="code_region" placeholder="Code region" />
+                <input type="text" id="" name="code_region"   class="form-control" [(ngModel)]="code_region" placeholder="Code region" />
                 <label class="form-label" for="code_region"> Code region</label>
               </div>
               <div class="form-outline  col-md-6 ">
-                <input type="text" id="" name="activite" [(ngModel)]="activite" formControlName="activite" class="form-control" placeholder="Activité" />
+                <input type="text" id="" name="activite"  [(ngModel)]="activite" class="form-control" placeholder="Activité" />
                 <label class="form-label" for="activite">Activité</label>
               </div>
               <div class="form-outline  col-md-6 ">
-                <input type="text" id="" name="superficie" [(ngModel)]="superficie" class="form-control" formControlName="superficie" placeholder="Superficie" />
+                <input type="text" id="" name="superficie"  class="form-control" [(ngModel)]="superficie" placeholder="Superficie" />
                 <label class="form-label" for="superficie">Superficie</label>
               </div>
               <div class="form-outline">
-                <input type="file" id="" class="form-control" formControlName="file1" name="file1" (change)="fileChang1($event)" />
+                <input type="file" id="" class="form-control" (change)="fileChang1($event)" />
                 <label class="form-label" for="image1">Image1 du région</label>
               </div>
               <div class="form-outline">
-                <input type="file" id="" class="form-control" formControlName="file2" name="file2" (change)="fileChang2($event)" />
+                <input type="file" id="" class="form-control" (change)="fileChang2($event)" />
                 <label class="form-label" for="image2">Image2 du région</label>
               </div>
               <div class="form-outline">
-                <input type="file" id="" class="form-control" formControlName="file3" name="file3" (change)="fileChang3($event)" />
+                <input type="file" id="" class="form-control" (change)="fileChang3($event)" />
                 <label class="form-label" for="image3">Image3 du région</label>
               </div>
 
               <!-- textarea input -->
               <div class="form-outline mb-3 col-12  form-row form-floating">
-                <textarea id="textarea4" rows="2" name="description" [(ngModel)]="description" class="form-control" formControlName="description"></textarea>
+                <textarea id="textarea4" rows="2" name="description"  class="form-control"  [(ngModel)]="description"></textarea>
                 <label class="form-label" for="textarea4">Description</label>
               </div>
 
@@ -192,7 +197,7 @@
               <!-- Checkbox -->
 
               <!-- Submit button -->
-              <button type="submit" class="btn btn-primary ">Ajouter la région</button>
+              <button type="submit" (click)="AjoutRegion()" class="btn btn-primary ">Ajouter la région</button>
             </form>
           </div>
         </div>

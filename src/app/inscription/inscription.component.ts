@@ -9,8 +9,7 @@ import { ConnexionService } from '../service/connexion.service';
 export class InscriptionComponent implements OnInit {
 
   form: any = {
-    nom: null,
-    prenom:null,
+    username: null,
     email: null,
     password: null
   };
@@ -24,9 +23,9 @@ export class InscriptionComponent implements OnInit {
   }
 
   onSubmit(): void {
-    const { nom,prenom, email, password } = this.form;
+    const { username, email, password } = this.form;
 
-    this.inscription.register(nom,email, password).subscribe({
+    this.inscription.register(username, email, password).subscribe({
       next: data => {
         console.log(data);
         this.InscriptionReussi = true;

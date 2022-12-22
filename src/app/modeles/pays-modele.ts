@@ -5,10 +5,10 @@ export class PaysModele {
   superficie!: string;
   drapeau!: string;
   // image2 !:string;
-  constructor(init : Partial<PaysModele>){
-    Object.assign(this, init)
-  }
-}
+  // constructor(init : Partial<PaysModele>){
+  //   Object.assign(this, init)
+  // }
+} 
 export class Fichier {
 
   // drapeau!: string;

@@ -1,0 +1,93 @@
+<mat-toolbar>
+    <button mat-icon-button *ngIf="sidenav.mode === 'over'" (click)="sidenav.toggle()">
+        <mat-icon *ngIf="!sidenav.opened">
+            menu
+        </mat-icon>
+        <mat-icon *ngIf="sidenav.opened">
+            close
+        </mat-icon>
+    </button>
+    <div class="row ro1   vw-100">
+        <div class="col-md-6 r1 d-flex justify-content-end">
+            <h1 class="py-3 r1">MaliTourist</h1>
+
+        </div>
+        <div class="col-md-6  d-flex justify-content-end">
+            <img class="avatar1" src="../assets/logo1.png" />
+
+        </div>
+
+    </div>
+
+</mat-toolbar>
+<mat-sidenav-container>
+    <mat-sidenav #sidenav="matSidenav" class="mat-elevation-z8">
+        <img class="avatar mat-elevation-z8" src="../assets/logo.png" />
+        <div class="flex">
+            <h4 class="name">{{currentUser.username}}</h4>
+            <p class="designation">Software Engineer</p>
+        </div>
+        <mat-divider class="py-1 tirete"></mat-divider>
+
+        <button mat-button class="menu-button" routerLinkActive="active" routerLink="/sidebar/board">
+            <mat-icon>home</mat-icon>
+            <span>Le board</span>
+        </button>
+        <div class="py-1"></div>
+        <button mat-button class="menu-button" routerLinkActive="active" routerLink="/sidebar/region">
+            <mat-icon>location_on</mat-icon>
+            <span>Régions</span>
+        </button>
+        <div class="py-1"></div>
+        <button mat-button class="menu-button" routerLinkActive="active" routerLink="/sidebar/user">
+            <mat-icon>person</mat-icon>
+            <span>Profile</span>
+            <h5 sty>bbb</h5>
+        </button>
+        <mat-divider class="dec1"></mat-divider>
+        <button mat-button class="menu-button dec" routerLinkActive="active" routerLink="/sidebar/utili">
+            <mat-icon>power_settings_new</mat-icon>
+            <span class="dec2" (click)="logout()">Déconnexion</span>
+        </button>
+    </mat-sidenav>
+    <mat-sidenav-content>
+        <div class="content">
+            <div class="container con py-2">
+                <router-outlet></router-outlet>
+                <!-- Footer -->
+                <div class="Container py-3 w-100">
+                    <div class="footer py-3">
+                        <div class="col text-center">
+                            <hr class="col hr mt-5">
+                        </div>
+                        <!-- mail -->
+                        <div class="row mx-4">
+                            <div class="col-md-4 mx-4">
+                                <h5 class="mai">Copyright| MaliTourisme - 2022</h5>
+                            </div>
+                            <!-- reseau sociaux -->
+                            <div class="col-md-2 offset-md-5 rs">
+                                <div class="row text-center">
+                                    <div class="col-sm-3 col-md-2">
+                                        <i class="bi bi-facebook fa-2x"></i>
+                                    </div>
+                                    <div class="col-sm-3 col-md-2 offset-md-1">
+                                        <i class="bi bi-envelope fa-2x"></i>
+                                    </div>
+                                    <div class="col-md-2 offset-md-1">
+                                        <i class="bi bi-instagram fa-2x"></i>
+                                    </div>
+                                    <div class="col-md-2 offset-md-1">
+                                        <i class="bi bi-twitter fa-2x"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <!-- Footer -->
+            </div>
+        </div>
+    </mat-sidenav-content>
+</mat-sidenav-container>
