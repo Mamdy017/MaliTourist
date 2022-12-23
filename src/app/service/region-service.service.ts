@@ -54,4 +54,8 @@ export class RegionServiceService {
   afficherCommentaire(idRegion:number, iduser:number) :Observable<any>{
     return this.http.get(`http://localhost:8080/commentaire/afficherParId/${idRegion}/${iduser}`);
   }
+
+  afficherHabitant(idRegion:number) :Observable<any>{
+    return this.http.get(`http://localhost:8080/region/afficherParId/${idRegion}`);
+  }
 }

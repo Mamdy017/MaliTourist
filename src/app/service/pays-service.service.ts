@@ -8,6 +8,13 @@ import { PaysModele } from '../modeles/pays-modele';
 })
 
 export class PaysServiceService {
+  
+  totPop() :Observable<any> {
+   return this.http.get("http://localhost:8080/pays/totalPop");
+  }
+  getAllSuperficie() :Observable<any> {
+    return this.http.get("http://localhost:8080/pays/allsuperficie");
+  }
 
   file:any;
   file1:any;

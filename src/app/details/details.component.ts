@@ -38,6 +38,7 @@ export class DetailsComponent implements OnInit {
   }
   currentUser: any;
   afficC: any;
+  afficH: any;
 
   constructor(private service: RegionServiceService, private formB: FormBuilder, private routes: ActivatedRoute, private storage:StorageService) { }
 
@@ -63,6 +64,12 @@ export class DetailsComponent implements OnInit {
     this.service.afficherCommentaire(this.idRegion,this.moi).subscribe(data=>{
       this.afficC = data
       console.table("mon pays", this.afficC);
+
+    })
+
+    this.service.afficherHabitant(this.idRegion).subscribe(data=>{
+      this.afficH = data
+      console.table("mon ha", this.afficH);
 
     })
 

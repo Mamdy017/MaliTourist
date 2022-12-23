@@ -15,6 +15,8 @@ export class BoardComponent implements OnInit {
 
   pays:any;
 
+  tsuperficie : any;
+
   Paysobjet: PaysModele = { 
     id: 0,
     nom: '',
@@ -33,6 +35,10 @@ export class BoardComponent implements OnInit {
   file: any;
   idPays:any
   Region: any;
+  totPop: any;
+  totPop1: any;
+  M: number | undefined;
+  total: any;
   // file1: any;
   constructor(private service: PaysServiceService, private formB: FormBuilder, private region:RegionServiceService) { }
 
@@ -52,10 +58,24 @@ export class BoardComponent implements OnInit {
 
     this.region.afficherRegion().subscribe(data => {
       this.Region = data;
-      console.table(this.region);
+      // console.table(this.region);
     });
+
+    this.service.getAllSuperficie().subscribe(reponse => {
+      this.tsuperficie = reponse;
+      // console.log(this.tsuperficie/100);
+    })
+
+    this.service.totPop().subscribe(response =>{
+      this.totPop1=response;
+      this.M=this.totPop1/1000000
+      this.total=this.M.toFixed(2)
+    })
+
+
   }
 
+  
 
   fileChang(event: any) {
     this.file = event.target.files[0]

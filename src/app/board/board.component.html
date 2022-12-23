@@ -5,8 +5,9 @@
       <div class="card radius-10 border-start border-end border-0 border-2 border-success">
         <div class="card-body">
           <div class="d-flex align-items-center">
-            <div  class=" w-100">
-              <p class="mb-0 text-secondary"> Total Pays <b style="margin-left:20% ; font-size: 30px; font-weight: 500">{{pays.length}}</b></p>
+            <div class=" w-100">
+              <p class="mb-0 text-secondary"> Total Pays <b
+                  style="margin-left:20% ; font-size: 30px; font-weight: 500">{{pays.length}}</b></p>
               <h1 class="my-3 text-danger">Date 2022</h1>
               <!-- <p class="mb-0 font-13">-4.5% from last week</p> -->
             </div>
@@ -23,8 +24,9 @@
       <div class="card radius-10 border-start border-end border-0 border-2 border-warning">
         <div class="card-body">
           <div class="d-flex align-items-center">
-            <div  class=" w-100">
-              <p class="mb-0 text-secondary">Total Population<b style="margin-left:20% ; font-size: 30px; font-weight: 500">220 M</b> </p>
+            <div class=" w-100">
+              <p class="mb-0 text-secondary">Total Population<b
+                  style="margin-left:20% ; font-size: 30px; font-weight: 500">{{total}} M</b> </p>
               <h1 class="my-3 text-danger">Date 2022</h1>
               <!-- <p class="mb-0 font-13">+8.4% from last week</p> -->
             </div>
@@ -42,7 +44,8 @@
         <div class="card-body">
           <div class="d-flex align-items-center">
             <div class=" w-100">
-              <p class="mb-0 text-secondary">Totale Région <b style="margin-left:20% ; font-size: 30px; font-weight: 500">{{Region.length}}</b></p>
+              <p class="mb-0 text-secondary">Totale Région <b
+                  style="margin-left:20% ; font-size: 30px; font-weight: 500">{{Region.length}}</b></p>
               <h1 class="my-3 text-danger">Date 2022</h1>
               <!-- <p class="mb-0 font-13">+5.4% from last week</p> -->
             </div>
@@ -61,7 +64,7 @@
           <div class="d-flex align-items-center">
             <div>
               <p class="mb-0 text-secondary">Superficie</p>
-              <h1 class="my-3 text-danger">1241238 km²</h1>
+              <h1 class="my-3 text-danger">{{tsuperficie}} km²</h1>
               <!-- <p class="mb-0 font-13">+5.4% from last week</p> -->
             </div>
             <div class="widgets-icons-2 rounded-circle bg-gradient-bloody text-white ms-auto">
@@ -101,7 +104,8 @@
           </div>
           <div class="col-md-3">
             <div class=" py-2"></div>
-            <button mat-button class="menu-button bg-danger" routerLinkActive="active" [routerLink]="['/sidebar/accueil',Pays.id]">
+            <button mat-button class="menu-button bg-danger" routerLinkActive="active"
+              [routerLink]="['/sidebar/accueil',Pays.id]">
               <!-- <mat-icon>person</mat-icon> -->
               <span>Profile</span>
             </button>
@@ -141,8 +145,8 @@
               <label for="name">Capital</label>
             </div>
             <div class="form-outline mb-4 col-12 form-row form-floating">
-              <input type="text" name="superficie" formControlName="superficie" id="superficie" placeholder="superficie"
-                class="form form-control inputvalue">
+              <input type="number" name="superficie" formControlName="superficie" id="superficie"
+                placeholder="superficie" class="form form-control inputvalue">
               <label for="name">Superficie</label>
             </div>
             <div class="form-outline mb-4">
