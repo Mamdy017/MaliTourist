@@ -37,6 +37,7 @@ export class DetailsComponent implements OnInit {
     commentaire:'',
   }
   currentUser: any;
+  afficC: any;
 
   constructor(private service: RegionServiceService, private formB: FormBuilder, private routes: ActivatedRoute, private storage:StorageService) { }
 
@@ -59,15 +60,21 @@ export class DetailsComponent implements OnInit {
 
     console.log("je suis id user" + this.moi);
 
+    this.service.afficherCommentaire(this.idRegion,this.moi).subscribe(data=>{
+      this.afficC = data
+      console.table("mon pays", this.afficC);
+
+    })
+
   }
 
   habitantsAjouter() {
-    
+
     if (this.chiffre=='' || this.langue == '' || this.annee == '') {
       alert('Vide')
     } else {
       alert('Rensei')
-     
+
       // this.habibant.annee = this.annee;
       // this.habibant.chiffre = this.chiffre;
       // this.habibant.langue = this.langue
@@ -78,7 +85,7 @@ export class DetailsComponent implements OnInit {
       this.service.ajouterHabitant(this.chiffre,this.langue,this.annee,this.idRegion).subscribe(data=>{
         console.log('---------------gtttt', data);
         this.reloadPage()
-        
+
         console.table('vcvcvvc'+ this.adama, this.ann);
       })
     }

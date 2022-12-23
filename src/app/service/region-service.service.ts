@@ -51,4 +51,7 @@ export class RegionServiceService {
     // data.append('idRegion',idRegion)
     return this.http.post(`http://localhost:8080/commentaire/creer/${idregion}/${iduser}`,data);
   }
+  afficherCommentaire(idRegion:number, iduser:number) :Observable<any>{
+    return this.http.get(`http://localhost:8080/commentaire/afficherParId/${idRegion}/${iduser}`);
+  }
 }
