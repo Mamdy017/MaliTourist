@@ -17,7 +17,7 @@ export class BoardComponent implements OnInit {
 
   tsuperficie : any;
 
-  Paysobjet: PaysModele = { 
+  Paysobjet: PaysModele = {
     id: 0,
     nom: '',
     capital: '',
@@ -63,19 +63,20 @@ export class BoardComponent implements OnInit {
 
     this.service.getAllSuperficie().subscribe(reponse => {
       this.tsuperficie = reponse;
-      // console.log(this.tsuperficie/100);
+       console.log(this.tsuperficie/100);
     })
 
     this.service.totPop().subscribe(response =>{
       this.totPop1=response;
       this.M=this.totPop1/1000000
-      this.total=this.M.toFixed(2)
+      this.total=this.M.toFixed(2);
+      console.log(this.M);
     })
 
 
   }
 
-  
+
 
   fileChang(event: any) {
     this.file = event.target.files[0]
@@ -113,7 +114,7 @@ export class BoardComponent implements OnInit {
       }).then((result) => {
         if (result.isConfirmed) {
           this.service.ajouterPAys(this.Paysobjet.nom, this.Paysobjet.capital, this.Paysobjet.superficie, this.file).subscribe(data => {
-           
+
               // this.route.navigateByUrl("/gestionentite")
               swalWithBootstrapButtons.fire(
                 'Pays ajouté avec succes!',

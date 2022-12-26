@@ -59,11 +59,11 @@ export class DetailsComponent implements OnInit {
     console.table(this.currentUser);
     this.moi = this.currentUser.id;
 
-    console.log("je suis id user" + this.moi);
+    // console.log("je suis id user" + this.moi);
 
     this.service.afficherCommentaire(this.idRegion,this.moi).subscribe(data=>{
       this.afficC = data
-      console.table("mon pays", this.afficC);
+      // console.table(this.afficC);
 
     })
 
